@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Edad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        Predictor de Edad
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- componente reutilizable del input -->
+      <app-search-input
+        (onClear)="inputClear()"
+        (onClick)="getAgeByName($event)"
+      ></app-search-input>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- card para mostrar el resultado -->
+  <ion-card class="card-container" *ngIf="showPrediction" color="light">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Prediccion</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="container-prediction">
+      <img class="img" [src]="img" alt="imagen_edad">
+      <ion-grid>
+        <ion-row class="ion-justify-content-around">
+          <p>Eres: {{mensaje}}</p>
+          <p>Edad: {{prediction.age}}</p>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

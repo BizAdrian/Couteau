@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Clima {{weatherDo?.sys?.country}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- card para mostrar el resultado -->
+  <ion-card color="ligth" *ngIf="weatherDo">
+    <img src="https://imgs.search.brave.com/5Ms_MfyFNP5HXOwCwZdR2hEqBEA5s-WOpibtU0vr-Mc/rs:fit:861:538:1/g:ce/aHR0cDovL3d3dy5t/YXBhaW50ZXJhY3Rp/dm8ubmV0L3dwLWNv/bnRlbnQvdXBsb2Fk/cy9NYXBhLWRlLXJl/cHVibGljYS1kb21p/bmljYW5hLmpwZw" alt="mapa_RD">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{weatherDo.name}}</ion-card-title>
+      <ion-card-subtitle class="ion-text-center">Clima Actual</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      <h3>Clima: <span>{{weatherDo.weather[0].description | titlecase}}</span></h3>
+      <h3>Temperatura: <span>{{weatherDo.main.temp}} °C</span></h3>
+      <h3>Temperatura Min: <span>{{weatherDo.main.temp_min}} °C</span></h3>
+      <h3>Temperatura Max: <span>{{weatherDo.main.temp_max}} °C</span></h3>
+      <h3>Humedad: <span>{{weatherDo.main.humidity}} %</span></h3>
+      <h3>Visibilidad: <span>{{weatherDo.visibility | number}} km</span></h3>
+      <h3>Vientos: <span>{{weatherDo.wind.speed | number}} m/s</span></h3>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

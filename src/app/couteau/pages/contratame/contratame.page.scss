@@ -1,0 +1,20 @@
+.redes-container{
+  margin-top: 25px;
+}
+
+.icons-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a #github{
+  color: white;
+  font-size: 42px;
+}
+

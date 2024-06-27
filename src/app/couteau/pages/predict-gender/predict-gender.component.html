@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Genero</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        Predictor de Genero
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- componente reutilizable del input -->
+      <app-search-input
+      (onClear)="inputClear()"
+      (onClick)="predictGender($event)"></app-search-input>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- card para mostrar el resultado -->
+  <ion-card class="card-container" *ngIf="showPrediction" [color]="cardColor">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Prediccion</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="container-prediction">
+      <p>Nombre: {{prediction.name | titlecase}}<p>
+      <p>Genero: {{prediction.gender | gender}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
